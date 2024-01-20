@@ -1,0 +1,85 @@
+:host {
+  height: 100%;
+  position: relative;
+  display: block;
+}
+
+ngx-monaco-editor {
+  display: block;
+  flex: 85 85 0px;
+}
+
+.fullsize {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#editor-footer-container {
+  flex: 15 15 0px;
+
+  >* {
+    vertical-align: top;
+    height: 100%;
+  }
+
+  #code-error {
+    flex: 9 9 0px;
+    padding: 10px;
+    background-color: #1E1E1E;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    .error-item {
+      color: white;
+    }
+  }
+
+  .copybook-processator {
+    flex: 1 1 0px;
+  }
+}
+
+cbl-dynamic-group {
+  background-color: #373737;
+}
+
+.form-wrapper {
+  overflow: auto;
+  flex: 75 75 0px;
+  padding: 15px;
+
+  >cbl-dynamic-group {
+    padding: 15px;
+  }
+}
+
+.textarea-wrapper {
+  flex: 25 25 0px;
+}
+
+.aviso {
+  padding: 5px 8px;
+  background-color: #ffc7f7;
+  font-family: Consolas, 'Courier New', Courier, monospace;
+  position: relative;
+  text-align: justify;
+  padding-right: 40px;
+  z-index: 1;
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
+
+  span {
+    display: block;
+    position: absolute;
+    right: 14px;
+    top: 5px;
+    cursor: pointer;
+    content: 'x';
+  }
+}

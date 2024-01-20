@@ -1,0 +1,214 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "**/*"
+  ],
+  "plugins": [
+    "@nrwl/nx",
+    "ban"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.base.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "plugin:@nrwl/nx/typescript"
+      ],
+      "rules": {
+        "@nrwl/nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "*",
+                "onlyDependOnLibsWithTags": [
+                  "*"
+                ]
+              }
+            ]
+          }
+        ],
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": [
+              "classProperty",
+              "objectLiteralProperty",
+              "typeProperty",
+              "classMethod",
+              "objectLiteralMethod",
+              "typeMethod",
+              "accessor",
+              "enumMember"
+            ],
+            "format": [
+              "camelCase",
+              "PascalCase",
+              "UPPER_CASE"
+            ]
+          }
+        ],
+        "@typescript-eslint/member-ordering": "off",
+        "@typescript-eslint/member-delimiter-style": "off",
+        "prefer-arrow/prefer-arrow-functions": "off",
+        "@typescript-eslint/ban-types": [
+          "error",
+          {
+            "extendDefaults": false,
+            "types": {
+              "Boolean": {
+                "message": "Avoid using the `Boolean` type.",
+                "fixWith": "boolean"
+              },
+              "Number": {
+                "message": "Avoid using the `Number` type.",
+                "fixWith": "number"
+              },
+              "String": {
+                "message": "Avoid using the `String` type.",
+                "fixWith": "string"
+              },
+              "Symbol": {
+                "message": "Avoid using the `Symbol` type.",
+                "fixWith": "symbol"
+              }
+            }
+          }
+        ],
+        "eslintno-useless-escape": "off",
+        "ban/ban": [
+          "error",
+          {
+            "name": "setTimeout",
+            "message": "Anule o linter nesta linha, mas comente justificando o porquê do uso de 'setTimeout' aqui"
+          },
+          {
+            "name": "eval",
+            "message": "O eval está abrindo brechas para defeitos em sua aplicação"
+          },
+          {
+            "name": "nextTick",
+            "message": "Anule o linter nesta linha, mas comente justificando o porquê do uso de 'nextTick' aqui"
+          }
+        ],
+        "max-lines": [
+          "error",
+          400
+        ],
+        "eqeqeq": "warn",
+        "@typescript-eslint/ban-ts-comment": [
+          "warn",
+          {
+            "ts-ignore": false
+          }
+        ],
+        "@typescript-eslint/explicit-member-accessibility": [
+          "error",
+          {
+            "accessibility": "no-public"
+          }
+        ],
+        "@typescript-eslint/no-empty-function": "error",
+        "@typescript-eslint/no-floating-promises": "error",
+        "@typescript-eslint/prefer-for-of": "off",
+        "@typescript-eslint/unbound-method": "error",
+        "@typescript-eslint/adjacent-overload-signatures": "warn",
+        "@typescript-eslint/no-magic-numbers": [
+          "warn",
+          {
+            "ignoreEnums": true,
+            "ignoreReadonlyClassProperties": true,
+            "ignoreNumericLiteralTypes": true,
+            "ignore": [
+              0,
+              1
+            ]
+          }
+        ],
+        "quotes": [
+          "warn",
+          "single"
+        ],
+        "arrow-parens": [
+          "off",
+          "always"
+        ],
+        "complexity": [
+          "error",
+          {
+            "max": 7
+          }
+        ],
+        "import/order": "off",
+        "jsdoc/check-alignment": "off",
+        "jsdoc/newline-after-description": "off",
+        "no-empty": [
+          "error",
+          {
+            "allowEmptyCatch": true
+          }
+        ],
+        "no-unused-expressions": "warn",
+        "no-eval": "warn",
+        "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/consistent-type-assertions": [
+          "warn",
+          {
+            "assertionStyle": "as",
+            "objectLiteralTypeAssertions": "allow-as-parameter"
+          }
+        ],
+        "@typescript-eslint/no-use-before-define": "warn",
+        "arrow-body-style": [
+          "off"
+        ],
+        "one-var": [
+          "off",
+          "never"
+        ],
+        "max-classes-per-file": [
+          "warn",
+          1
+        ],
+        "@typescript-eslint/explicit-function-return-type": [
+          "warn",
+          {
+            "allowExpressions": true
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.js",
+        "*.jsx"
+      ],
+      "extends": [
+        "plugin:@nrwl/nx/javascript"
+      ],
+      "rules": {}
+    },
+    {
+      "files": [
+        "*.spec.ts",
+        "*.spec.tsx",
+        "*.spec.js",
+        "*.spec.jsx"
+      ],
+      "env": {
+        "jest": true
+      },
+      "rules": {}
+    }
+  ]
+}

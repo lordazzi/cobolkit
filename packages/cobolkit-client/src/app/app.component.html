@@ -1,0 +1,34 @@
+<div *ngIf="exibindoAviso" class="aviso">
+  <p><strong>Estamos evoluindo!</strong> Chegou a hora de dedicarmos mais tempo ao nosso querido cobolkit, e para isso estamos migrando para uma nova plataforma:</p>
+  <p>Acesse <a href="https://dott.ai/cobolkit" target="_blank">https://dott.ai/cobolkit</a>, acompanhe nossa evolução. Em breve este endereço também redirecionará para lá.</p>
+  <span (click)="closeMessage()">x</span>
+</div>
+
+  <div class="flex-col-wrapper fullsize">
+    <div class="flex-equal flex-row-wrapper">
+      <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code"></ngx-monaco-editor>
+      <div id="editor-footer-container" class="flex-col-wrapper">
+        <div id="code-error">
+          <div class="error-item" *ngFor="let error of [].concat(errors).reverse()">
+            <span class="icon icon-error"></span>
+            {{error.msg}}
+            <button (click)="showInString(error)" *ngIf="error.fromPos || error.toPos">
+              Show in string
+            </button>
+          </div>
+        </div>
+        <button class="copybook-processator common-font" (click)="generateStructures(code)">Process copybook</button>
+      </div>
+    </div>
+    <div class="flex-equal flex-row-wrapper">
+      <div *ngIf="hasMetaModel" class="flex-row-wrapper form-wrapper default-background-color">
+        <cbl-occurs-controller [(metaValue)]="currentMetaModel" *ngFor="let structure of structures"
+          [structure]="structure"></cbl-occurs-controller>
+        <div class="flex-equal default-background-color"></div>
+      </div>
+      <div class="flex-row-wrapper textarea-wrapper">
+        <textarea #stringPositionalField class="flex-equal common-font" [(ngModel)]="currentPositionalString"
+          (input)="generateMetaData()"></textarea>
+      </div>
+    </div>
+  </div>

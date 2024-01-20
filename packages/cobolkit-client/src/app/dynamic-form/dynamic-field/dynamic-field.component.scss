@@ -1,0 +1,40 @@
+:host {
+    display: block;
+    padding: 5px 0;
+}
+
+input.is-number:only-whitespace {
+    border: 1px solid red;
+}
+
+label {
+    display: inline-block;
+    width: 250px;
+
+    &:after {
+        content: ':';
+    }
+}
+
+.has-error {
+    text-decoration: underline wavy red;
+}
+
+.error-wrapper {
+    padding-left: 250px;
+
+    .icon.icon-error {
+        width: 12px;
+        height: 12px;
+        background-size: 100%;
+        margin-top: 5px;
+        margin-right: 5px;
+    }
+
+    .error-message {
+        color: red;
+        display: inline-block;
+        font-size: 11px;
+        padding-top: 5px;
+    }
+}

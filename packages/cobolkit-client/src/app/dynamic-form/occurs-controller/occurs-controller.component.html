@@ -1,0 +1,22 @@
+<div *ngIf="structure && metaValue" [class.occuring]="structure.occurs">
+  <div class="occur-tab" (click)="occursIndex = occur.value" [class.occur-selected]="occursIndex === occur.value"
+    *ngFor="let occur of structure?.occurs | occurrenceTabObject">{{occur.name}}</div>
+
+  <ng-container *ngIf="!treatAsOccurs()">
+    <cbl-dynamic-group *ngIf="isObject(structure)" [structure]="structure" [(metaValue)]="metaValue[structure.name]">
+    </cbl-dynamic-group>
+
+    <cbl-dynamic-field *ngIf="isPrimitive(structure)" [structure]="structure" [(metaValue)]="metaValue[structure.name]"
+      (inputEvent)="inputToContainer($event, structure)">
+    </cbl-dynamic-field>
+  </ng-container>
+
+  <ng-container *ngIf="treatAsOccurs()">
+    <cbl-dynamic-group *ngIf="isObject(structure)" [structure]="structure"
+      [(metaValue)]="metaValue[structure.name][occursIndex]">
+    </cbl-dynamic-group>
+    <cbl-dynamic-field *ngIf="isPrimitive(structure)" [structure]="structure"
+      [(metaValue)]="metaValue[structure.name][occursIndex]" (inputEvent)="inputToOccurs($event, structure)">
+    </cbl-dynamic-field>
+  </ng-container>
+</div>

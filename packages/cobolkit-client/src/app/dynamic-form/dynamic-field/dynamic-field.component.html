@@ -1,0 +1,9 @@
+<label>{{structure?.name}}</label>
+<div contenteditable="true" spellcheck="false" type="text" class="common-font" [class.has-error]="fieldError && dirty"
+    [class.is-alphabetic]="isAlphabetic" [class.is-character]="isCharacter" [class.is-number]="isNumber"
+    #dynamicFieldInput (input)="updateValue(dynamicFieldInput.innerText)" (blur)="onBlur()" (focus)="onFocus()"></div>
+
+<div class="error-wrapper" *ngIf="fieldError && dirty">
+    <span class="icon icon-error"></span>
+    <div class="error-message">{{fieldError.message}}</div>
+</div>

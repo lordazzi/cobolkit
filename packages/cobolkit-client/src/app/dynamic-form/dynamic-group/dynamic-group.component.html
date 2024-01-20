@@ -1,0 +1,6 @@
+<fieldset>
+  <legend>{{structure?.name}}</legend>
+  <ng-container *ngFor="let attribute of structure?.attributes">
+    <cbl-occurs-controller [structure]="attribute" [(metaValue)]="metaValue"></cbl-occurs-controller>
+  </ng-container>
+</fieldset>

@@ -1,0 +1,21 @@
+.occuring {
+  display: block;
+
+  .occur-tab {
+    display: inline-block;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border: 1px solid;
+    text-align: center;
+    margin: 1px;
+    color: white;
+    background-color: #1E1E1E;
+    border: 1px solid #313131;
+    padding: 3px 5px 1px;
+
+    &.occur-selected {
+      background-color: #484747;
+    }
+  }
+}

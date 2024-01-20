@@ -1,0 +1,76 @@
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  background-color: #625e5e;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+textarea {
+  resize: none;
+  background-color: #1E1E1E;
+  border: 0;
+  color: white;
+  padding: 7px;
+  box-sizing: border-box;
+}
+
+fieldset {
+  color: white;
+  border-color: black;
+}
+
+label {
+  color: white;
+}
+
+input[type="text"],
+input[type="number"],
+[contenteditable="true"] {
+  padding: 3px 3px;
+  height: 20px;
+  border: 1px solid black;
+  background-color: white;
+  display: inline-block;
+  width: 175px;
+  border-radius: 3px;
+  color: black;
+  font-weight: bold;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+.default-background-color {
+  background-color: #373737
+}
+
+.common-font {
+  font-family: Consolas, "Courier New", monospace;
+}
+
+.flex-row-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-col-wrapper {
+  display: flex;
+}
+
+.flex-equal {
+  flex: 1 1 0px;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+
+.icon.icon-error {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA8ElEQVR42o1TSwrCMBTMXSRWKLhw5c6duo6gS1tQdOu2HkB6DrvtgYzXcB87hRdekldtYaC8zEzeL0oJX64nrlgtXW02PfCPmPr3gfQ8Gvd53ETgbNBovZi7V3UZFBPAATe5mcTv+9W150Mi5HFwg0yawnhSns2c1tPARIpD42/3xArErCcSmYtxBg7x+yzKrsNBqpHJkBiAVtW7bVpvYpKKAWhFA6ROYl6OaBCXEIvjniQl8CbG4va0FxsbNDEYIyNDLPWE4n6MNEpLi9SRuZibUNzGi0SrbEesspVWmWdC5UjA2ehXiQ5jTED54zl/ASOR5y+s+3NWAAAAAElFTkSuQmCC');
+}

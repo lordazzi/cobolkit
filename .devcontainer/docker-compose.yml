@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  cobolkit-development:
+    image: cobolkit-development
+    container_name: cobolkit-development
+    build:
+      context: ../.
+      dockerfile: ./.devcontainer/Dockerfile
+    ports:
+      - "4203:4200"
+      - "8091:8091"
+      - "9229:9229"
+    volumes:
+      - ../:/cobolkit:cached
+    working_dir: /cobolkit
+    tty: true
